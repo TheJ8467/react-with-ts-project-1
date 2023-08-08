@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const authApi = createApi({
   reducerPath: 'auth',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3005',
+    baseUrl: 'https://4pkcr2-3005.csb.app/',
   }),
   tagTypes: ['User'],
   endpoints(builder) {
@@ -30,7 +30,10 @@ const authApi = createApi({
         query: (newUserInfo) => ({
           url: '/register',
           method: 'POST',
-          body: newUserInfo,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newUserInfo),
         }),
         invalidatesTags: [{ type: 'User', id: 'LIST' }],
       }),

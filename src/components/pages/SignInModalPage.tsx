@@ -1,9 +1,5 @@
-import { FunctionComponent as FC, useEffect, useState } from 'react';
-import {
-  useGetUserInfoQuery,
-  useLoginMutation,
-  useUpdateAuthStatusMutation,
-} from '../../store';
+import { FunctionComponent as FC, useState } from 'react';
+import { useGetUserInfoQuery } from '../../store';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import { useModalState } from '../../hooks/use-modal-state';
 
