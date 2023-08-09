@@ -42,8 +42,8 @@ const RegisterModalPage: FC<ModalCompProps> = ({}) => {
     if (password !== ConfirmPassword) {
       alert('Passwords do not match');
     } else {
-      // const password = hashPassword(password1);
-      register({ email, password });
+      const hashedPassword = hashPassword(password);
+      register({ email, hashedPassword });
       setEmail('');
       setPassword('');
       setConfirmPassword('');

@@ -2,6 +2,7 @@ import { FunctionComponent as FC, useState } from 'react';
 import { useGetUserInfoQuery } from '../../store';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import { useModalState } from '../../hooks/use-modal-state';
+import CryptoJS from 'crypto-js';
 
 const SignInModalPage: FC<ModalCompProps> = ({}) => {
   const [email, setEmail] = useState('');
@@ -24,13 +25,18 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
     setPassword(e.target.value);
   };
 
+  const hashPassword = (pwd: any) => {
+    return CryptoJS.SHA256(pwd).toString();
+  };
+
   const handleSignInSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const hashedPassword = hashPassword(password);
     try {
       if (
         userInfo.some(
-          (user: { email: any; password: any }) =>
-            user.email === email && user.password === password,
+          (user: { email: any; hashedPassword: any }) =>
+            user.email === email && user.hashedPassword === hashedPassword,
         )
       ) {
         localStorage.setItem('isLogin', 'true');

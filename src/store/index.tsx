@@ -4,11 +4,13 @@ import { addressesApi } from './apis/addressesApi';
 import { usersReducer } from './slices/userSlice';
 import { authApi } from './apis/authApi';
 import { modalReducer } from './slices/modalSlice';
+import { windowReducer } from './slices/windowSlice';
 
 export const store = configureStore({
   reducer: {
     users: usersReducer,
     modal: modalReducer,
+    window: windowReducer,
     [addressesApi.reducerPath]: addressesApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
   },
