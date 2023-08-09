@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // it is for simplified useAddAddressMutation
 const addAddress = createAsyncThunk('addresses/add', async () => {
-  const response = await axios.post('https://lxsxq5-3005.csb.app/addresses', {
+  const response = await axios.post('https://plw28h-3005.csb.app/addresses', {
     address: 'some address',
   });
 

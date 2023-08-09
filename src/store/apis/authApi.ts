@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const authApi = createApi({
   reducerPath: 'auth',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://lxsxq5-3005.csb.app/',
+    baseUrl: 'https://plw28h-3005.csb.app/',
   }),
   tagTypes: ['User'],
   endpoints(builder) {
