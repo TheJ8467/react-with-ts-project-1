@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // it is for simplified useAddUserMutation
 const addUser = createAsyncThunk('users/add', async () => {
-  const response = await axios.post('http://localhost:3005/users', {
+  const response = await axios.post('https://lxsxq5-3005.csb.app/users', {
     name: 'some name',
   });
 
