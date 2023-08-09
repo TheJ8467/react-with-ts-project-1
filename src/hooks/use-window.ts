@@ -10,10 +10,10 @@ export const useWindow = () => {
   );
 
   useEffect(() => {
-    const handleResize = () => dispatch(setWindowWidth(windowWidth));
+    const handleResize = () => dispatch(setWindowWidth(window.innerWidth));
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [dispatch]);
 
   return {
     windowWidth,

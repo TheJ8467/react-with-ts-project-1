@@ -1,27 +1,22 @@
-import { FunctionComponent, useState } from 'react';
-import Searchbar from './main-screen/1F-searh/Searchbar';
-import Linkbars from './main-screen/2F-hashbars/Linkbars';
-import MainSquares from './main-screen/3F-squares/MainSquares';
-import EventRactangle from './main-screen/4F-event-rectangle/EventRactangle';
-import Navbar from './main-screen/5F-navbar/Navbar';
-import MyInfoManager from './main-screen/5F-navbar/MyInfoManager';
-import RegisterManager from './main-screen/5F-navbar/RegisterManager';
-import SignInManager from './main-screen/5F-navbar/SignInManager';
+import AppWep from './AppWep';
+import AppFailed from './AppFailed';
+import { useWindow } from '../hooks/use-window';
+import AppOk from './AppOk';
 
-const App: FunctionComponent<{}> = () => {
-  
-  return (
-    <div>
-      <Searchbar />
-      <Linkbars />
-      <MainSquares />
-      <EventRactangle />
-      <Navbar />
-      <MyInfoManager/>
-      <RegisterManager/>
-      <SignInManager/>
-    </div>
-  );
+const App = () => {
+  const { windowWidth } = useWindow();
+
+  let _App;
+
+  if (windowWidth > 768) {
+    _App = AppWep;
+  } else if (windowWidth >= 393) {
+    _App = AppOk;
+  } else {
+    _App = AppFailed;
+  }
+
+  return <_App />;
 };
 
 export default App;
