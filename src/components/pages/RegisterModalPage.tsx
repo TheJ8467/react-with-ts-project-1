@@ -98,7 +98,7 @@ const RegisterModalPage: FC<ModalCompProps> = ({}) => {
           />
         </div>
         <div className="flex justify-between p-4 border border-black">
-          <label>Confirm password</label>
+          <label className="text-sm flex items-center">Confirm password</label>
           <input
             className="w-5/12 border border-black"
             name="confirm-password"
