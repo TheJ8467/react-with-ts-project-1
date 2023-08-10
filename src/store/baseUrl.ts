@@ -1,4 +1,4 @@
-const csbUrl = 'https://plw28h-3005.csb.app';
+const csbUrl = 'https://6xz4j3-3005.csb.app';
 const isLocalhost =
   window.location.hostname === 'localhost' ||
   window.location.hostname === '127.0.0.1';
