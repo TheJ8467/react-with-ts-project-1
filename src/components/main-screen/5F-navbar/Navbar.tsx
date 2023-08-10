@@ -6,6 +6,7 @@ import { BiWinkSmile } from 'react-icons/bi';
 import { RiHomeSmileFill } from 'react-icons/ri';
 import { useDispatch } from 'react-redux';
 import { setShowModal } from '../../../store/slices/modalSlice';
+import { useModalState } from '../../../hooks/use-modal-state';
 
 // this function makes modal open, it controls showModal proped from App.tsx
 const Navbar: FC<{}> = ({}) => {

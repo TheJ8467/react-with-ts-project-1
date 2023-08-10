@@ -30,6 +30,8 @@ const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
 
   const handleSignOutClick = () => {
     handlesSetIsLogin(false);
+    localStorage.removeItem('isLogin');
+    localStorage.removeItem('email');
   };
 
   let loginStatus;

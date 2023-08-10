@@ -13,9 +13,7 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
     handlesSetSignInModal,
     handlesSetIsLogin,
     handleSetEmail,
-    isLogin,
   } = useModalState();
-  console.log(isLogin);
   const { windowHeight } = useWindow();
   const { data: userInfo } = useGetUserInfoQuery({});
 
@@ -81,7 +79,6 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
       </div>
     );
   }
-  console.log(isLogin);
   return (
     <div>
       <form onSubmit={handleSignInSubmit}>
