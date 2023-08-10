@@ -3,6 +3,7 @@
 import { FunctionComponent as FC, useEffect } from 'react';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import { useModalState } from '../../hooks/use-modal-state';
+import { useWindow } from '../../hooks/use-window';
 
 // This page is in progress.
 // This page will manage sign in, sign out, register
@@ -11,11 +12,13 @@ const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
   const {
     isLogin,
     email,
+    handlesSetShowModal,
     handlesSetShowRegisterModal,
     handlesSetSignInModal,
     handlesSetIsLogin,
     handleSetEmail,
   } = useModalState();
+  const { windowHeight } = useWindow();
 
   const handleRegisterClick = () => {
     handlesSetShowRegisterModal(true);
@@ -23,7 +26,6 @@ const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
 
   const handleSignInClick = () => {
     handlesSetSignInModal(true);
-    handlesSetIsLogin(true);
   };
 
   const handleSignOutClick = () => {
@@ -69,7 +71,7 @@ const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
 
   let logoutButton;
 
-  if (isLogin) {
+  if (isLogin && windowHeight > 750) {
     logoutButton = (
       <button
         className="border rounded-xl p-2 bg-yellow-400 m-4"
@@ -77,6 +79,23 @@ const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
       >
         Sign out
       </button>
+    );
+  } else if (isLogin && windowHeight <= 750) {
+    logoutButton = (
+      <div>
+        <button
+          className="border rounded-xl p-2 bg-yellow-400 m-4"
+          onClick={handleSignOutClick}
+        >
+          Sign out
+        </button>
+        <button
+          onClick={() => handlesSetShowModal(false)}
+          className="border rounded-lg bg-red-300 p-2 mt-2 w-auto"
+        >
+          Close
+        </button>
+      </div>
     );
   } else {
     logoutButton = null;

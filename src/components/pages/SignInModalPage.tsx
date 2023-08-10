@@ -3,6 +3,7 @@ import { useGetUserInfoQuery } from '../../store';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import { useModalState } from '../../hooks/use-modal-state';
 import CryptoJS from 'crypto-js';
+import { useWindow } from '../../hooks/use-window';
 
 const SignInModalPage: FC<ModalCompProps> = ({}) => {
   const [email, setEmail] = useState('');
@@ -12,7 +13,10 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
     handlesSetSignInModal,
     handlesSetIsLogin,
     handleSetEmail,
+    isLogin,
   } = useModalState();
+  console.log(isLogin);
+  const { windowHeight } = useWindow();
   const { data: userInfo } = useGetUserInfoQuery({});
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -53,6 +57,31 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
       console.error('Error signing in:', error);
     }
   };
+
+  let buttons;
+
+  if (windowHeight > 750) {
+    buttons = (
+      <button className="border rounded-lg border-black p-2 mt-2 float-right">
+        Sign in
+      </button>
+    );
+  } else {
+    buttons = (
+      <div>
+        <button
+          onClick={() => handlesSetSignInModal(false)}
+          className="border rounded-lg bg-red-300 p-2 mt-2 w-3/12"
+        >
+          Close
+        </button>
+        <button className="border rounded-lg border-black p-2 mt-2 float-right">
+          Sign in
+        </button>
+      </div>
+    );
+  }
+  console.log(isLogin);
   return (
     <div>
       <form onSubmit={handleSignInSubmit}>
@@ -75,10 +104,7 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
             type="password"
           />
         </div>
-
-        <button className="border rounded-lg border-black p-2 mt-2 float-right">
-          Sign in
-        </button>
+        {buttons}
       </form>
     </div>
   );
