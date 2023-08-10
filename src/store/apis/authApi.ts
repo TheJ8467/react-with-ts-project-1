@@ -1,10 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { baseUrl } from '../baseUrl';
 
-// It has endpoints of login, logout, register, getUserInfo, updateProfile, resetPassword, refreshToken, checkstatus
+// It has endpoints about user authentication.
+
 const authApi = createApi({
   reducerPath: 'auth',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://plw28h-3005.csb.app/',
+    baseUrl: baseUrl,
   }),
   tagTypes: ['User'],
   endpoints(builder) {
@@ -15,10 +17,6 @@ const authApi = createApi({
           method: 'POST',
           body: credentials,
         }),
-        // transformResponse: () => ({
-        //   accessToken: 'mockAccessToken',
-        //   expirationTime: 'mockExpirationTime',
-        // }),
       }),
       logout: builder.mutation({
         query: () => ({

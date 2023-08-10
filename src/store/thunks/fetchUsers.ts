@@ -1,9 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { baseUrl } from '../baseUrl';
 
 const fetchUsers = createAsyncThunk('users/fetch', async () => {
   try {
-    const response = await axios.get('https://plw28h-3005.csb.app/users');
+    const response = await axios.get(`${baseUrl}/users`);
     return response.data;
   } catch (error) {
     console.error(error);
