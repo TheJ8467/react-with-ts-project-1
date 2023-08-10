@@ -23,6 +23,11 @@ const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
 
   const handleSignInClick = () => {
     handlesSetSignInModal(true);
+    handlesSetIsLogin(true);
+  };
+
+  const handleSignOutClick = () => {
+    handlesSetIsLogin(false);
   };
 
   let loginStatus;
@@ -35,15 +40,16 @@ const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
       handlesSetIsLogin(true);
       handleSetEmail(email);
     }
-
-    console.log(isLogin, email);
   }, []);
 
-  loginStatus = <p>{isLogin ? email : 'Guest'}</p>;
+  loginStatus = <p>{isLogin ? `Welcome ${email}` : 'Guest'}</p>;
 
-  return (
-    <div>
-      <p className="p-4 text-center">{loginStatus}</p>
+  let buttonsForSignedIn;
+
+  if (isLogin) {
+    buttonsForSignedIn = null;
+  } else {
+    buttonsForSignedIn = (
       <div className="flex justify-between m-4">
         <button
           className="flex border rounded-xl p-2 bg-yellow-400 mr-4"
@@ -58,6 +64,29 @@ const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
           Register
         </button>
       </div>
+    );
+  }
+
+  let logoutButton;
+
+  if (isLogin) {
+    logoutButton = (
+      <button
+        className="border rounded-xl p-2 bg-yellow-400 m-4"
+        onClick={handleSignOutClick}
+      >
+        Sign out
+      </button>
+    );
+  } else {
+    logoutButton = null;
+  }
+
+  return (
+    <div className="flex flex-col items-center">
+      <p className="p-4 text-center">{loginStatus}</p>
+      {logoutButton}
+      {buttonsForSignedIn}
     </div>
   );
 };

@@ -1,0 +1,114 @@
+{
+  "users": [
+    {
+      "name": "DJ",
+      "id": 1
+    }
+  ],
+  "auth": [],
+  "login": [],
+  "register": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "email": "ww113",
+      "id": 3
+    },
+    {
+      "email": "sadas14324",
+      "password": "rwrewr33",
+      "id": 4
+    },
+    {
+      "email": "dsadad",
+      "password": "2323",
+      "id": 5
+    },
+    {
+      "email": "wqeqwe",
+      "password": "22",
+      "id": 6
+    },
+    {
+      "email": "ewreeee",
+      "password": "1234",
+      "id": 7
+    },
+    {
+      "email": "dsaww1241",
+      "hashedPassword": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "id": 8
+    },
+    {
+      "email": "wqeqwe2",
+      "hashedPassword": "4654d793972c3b6a1d48fb0ab58d9cb0de46c3d33d605f9222c283dfaa12d420",
+      "id": 9
+    },
+    {
+      "email": "dd22",
+      "hashedPassword": "9060e643f4b797a9a1e0c70edafaecc512e26b76a01feb8f2e18b74efb5002de",
+      "id": 10
+    },
+    {
+      "email": "dwqeqwe",
+      "hashedPassword": "556d7dc3a115356350f1f9910b1af1ab0e312d4b3e4fc788d2da63668f36d017",
+      "id": 11
+    },
+    {
+      "email": "ee111122",
+      "hashedPassword": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "id": 12
+    },
+    {
+      "email": "ee111122213",
+      "password": "1111",
+      "id": 13
+    },
+    {
+      "email": "dwqewq22241",
+      "password": "1111",
+      "id": 14
+    },
+    {
+      "email": "weqdds22321",
+      "hashedPassword": "1111",
+      "id": 15
+    },
+    {
+      "email": "sae3253wtr",
+      "password": "0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c",
+      "id": 16
+    },
+    {
+      "email": "qwes2322",
+      "password": "123",
+      "id": 17
+    },
+    {
+      "email": "ad111",
+      "hashedPassword": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "id": 18
+    }
+  ],
+  "status": [
+    {
+      "isLogin": false
+    }
+  ],
+  "addresses": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "some title"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "title": "another title"
+    }
+  ]
+}

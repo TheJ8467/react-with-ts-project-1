@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { useEffect } from 'react';
-import { setWindowWidth } from '../store/slices/windowSlice';
+import { setWindowHeight, setWindowWidth } from '../store/slices/windowSlice';
 
 export const useWindow = () => {
   const dispatch = useDispatch();
@@ -10,9 +10,16 @@ export const useWindow = () => {
   );
 
   useEffect(() => {
-    const handleResize = () => dispatch(setWindowWidth(window.innerWidth));
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const handleWidthResize = () => dispatch(setWindowWidth(window.innerWidth));
+    window.addEventListener('resize', handleWidthResize);
+    return () => window.removeEventListener('resize', handleWidthResize);
+  }, [dispatch]);
+
+  useEffect(() => {
+    const handleHeightResize = () =>
+      dispatch(setWindowHeight(window.innerHeight));
+    window.addEventListener('resize', handleHeightResize);
+    return () => window.removeEventListener('resize', handleHeightResize);
   }, [dispatch]);
 
   return {

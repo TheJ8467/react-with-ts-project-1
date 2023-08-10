@@ -3,6 +3,7 @@ import Modal from '../../Modal/Modal';
 import RegisterModalPage from '../../pages/RegisterModalPage';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 import { useModalState } from '../../../hooks/use-modal-state';
+import { useWindow } from '../../../hooks/use-window';
 
 const RegisterManager: FC<ModalCompProps> = ({}) => {
   const { showRegisterModal, handlesSetShowRegisterModal } = useModalState();
