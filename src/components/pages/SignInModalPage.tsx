@@ -66,7 +66,7 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
     );
   } else {
     buttons = (
-      <div>
+      <div className="mt-4">
         <button
           onClick={() => handlesSetSignInModal(false)}
           className="border rounded-lg bg-red-300 p-2 mt-2 w-3/12"
