@@ -4,6 +4,7 @@ import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import { useModalState } from '../../hooks/use-modal-state';
 import CryptoJS from 'crypto-js';
 import { useWindow } from '../../hooks/use-window';
+import ActionButton from '../main-screen/utils/buttons/ActionButton';
 
 const SignInModalPage: FC<ModalCompProps> = ({}) => {
   const [email, setEmail] = useState('');
@@ -56,29 +57,29 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
     }
   };
 
-  let buttons;
+  // let buttons;
 
-  if (windowHeight > 750) {
-    buttons = (
-      <button className="border rounded-lg border-black p-2 mt-2 float-right">
-        Sign in
-      </button>
-    );
-  } else {
-    buttons = (
-      <div className="mt-4">
-        <button
-          onClick={() => handlesSetSignInModal(false)}
-          className="border rounded-lg bg-red-300 p-2 mt-2 w-3/12"
-        >
-          Close
-        </button>
-        <button className="border rounded-lg border-black p-2 mt-2 float-right">
-          Sign in
-        </button>
-      </div>
-    );
-  }
+  // if (windowHeight > 750) {
+  //   buttons = (
+  //     <button className="border rounded-lg border-black p-2 mt-2 float-right">
+  //       Sign in
+  //     </button>
+  //   );
+  // } else {
+  //   buttons = (
+  //     <div className="mt-4">
+  //       <button
+  //         onClick={() => handlesSetSignInModal(false)}
+  //         className="border rounded-lg bg-red-300 p-2 mt-2 w-3/12"
+  //       >
+  //         Close
+  //       </button>
+  //       <button className="border rounded-lg border-black p-2 mt-2 float-right">
+  //         Sign in
+  //       </button>
+  //     </div>
+  //   );
+  // }
   return (
     <div>
       <form onSubmit={handleSignInSubmit}>
@@ -101,7 +102,10 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
             type="password"
           />
         </div>
-        {buttons}
+        <ActionButton
+          handlesSetSignInModal={() => handlesSetSignInModal(false)}
+          action={'Sign in'}
+        />
       </form>
     </div>
   );

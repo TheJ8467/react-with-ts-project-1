@@ -32,7 +32,6 @@ function Modal({ onClose, children, actionBar, containerId }: ModalProps) {
         <div className="flex items-center justify-center h-full">
           {children}
         </div>
-        {/* {actionBar} */}
       </div>
     );
   }

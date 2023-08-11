@@ -3,4 +3,6 @@ export interface ButtonProps {
   handleRegisterClick?: () => void;
   handleSignOutClick?: () => void;
   handlesSetShowRegisterModal?: () => void;
+  handlesSetSignInModal?: () => void;
+  action?: string;
 }
