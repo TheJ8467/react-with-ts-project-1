@@ -6,6 +6,7 @@ import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import CryptoJS from 'crypto-js';
 import { useModalState } from '../../hooks/use-modal-state';
 import { useWindow } from '../../hooks/use-window';
+import RegisterButtons from '../main-screen/utils/buttons/RegisterButtons';
 
 // This page manages register
 
@@ -14,7 +15,6 @@ const RegisterModalPage: FC<ModalCompProps> = ({}) => {
   const [password, setPassword] = useState('');
   const [ConfirmPassword, setConfirmPassword] = useState('');
   const { handlesSetShowRegisterModal } = useModalState();
-  const { windowHeight } = useWindow();
   const [register] = useRegisterMutation();
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -51,30 +51,6 @@ const RegisterModalPage: FC<ModalCompProps> = ({}) => {
     }
   };
 
-  let buttons;
-
-  if (windowHeight > 750) {
-    buttons = (
-      <button className="border rounded-lg border-black p-2 mt-2 float-right">
-        Register
-      </button>
-    );
-  } else {
-    buttons = (
-      <div>
-        <button
-          onClick={() => handlesSetShowRegisterModal(false)}
-          className="border rounded-lg bg-red-300 p-2 mt-2 w-3/12"
-        >
-          Close
-        </button>
-        <button className="border rounded-lg border-black p-2 mt-2 float-right">
-          Register
-        </button>
-      </div>
-    );
-  }
-
   return (
     <div>
       <form onSubmit={handleRegisterSubmit}>
@@ -107,10 +83,9 @@ const RegisterModalPage: FC<ModalCompProps> = ({}) => {
             type="password"
           />
         </div>
-        {buttons}
-        {/* <button className="border rounded-lg border-black p-2 mt-2 float-right">
-          Register
-        </button> */}
+        <RegisterButtons
+          handlesSetShowRegisterModal={() => handlesSetShowRegisterModal(false)}
+        />
       </form>
     </div>
   );

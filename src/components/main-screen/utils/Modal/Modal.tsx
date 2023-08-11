@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import { useEffect } from 'react';
-import { ModalProps } from '../../interfaces/props/ModalProps';
-import { useWindow } from '../../hooks/use-window';
+import { ModalProps } from '../../../../interfaces/props/ModalProps';
+import { useWindow } from '../../../../hooks/use-window';
 
 // actionBar is for close button at the bottom
 // onClose is for closing by clicking outside of modal

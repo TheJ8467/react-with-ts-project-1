@@ -1,5 +1,5 @@
 import { FunctionComponent as FC } from 'react';
-import Modal from '../../Modal/Modal';
+import Modal from '../utils/Modal/Modal';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 import MyInfoModalPage from '../../pages/MyInfoModalPage';
 import { useSelector } from 'react-redux';
@@ -17,7 +17,6 @@ const MyinfoManager: FC<ModalCompProps> = ({}) => {
     handlesSetShowRegisterModal,
     isLogin,
   } = useModalState();
-  console.log(isLogin);
   const handleClose = () => {
     handlesSetShowModal(!showModal);
   };

@@ -18,12 +18,6 @@ const authApi = createApi({
           body: credentials,
         }),
       }),
-      logout: builder.mutation({
-        query: () => ({
-          url: '/logout',
-          method: 'POST',
-        }),
-      }),
       register: builder.mutation({
         query: (newUserInfo) => ({
           url: '/register',
@@ -42,59 +36,10 @@ const authApi = createApi({
         }),
         providesTags: [{ type: 'User', id: 'LIST' }],
       }),
-      getCurrentUserInfo: builder.query({
-        query: () => ({
-          url: '/login',
-          method: 'GET',
-        }),
-      }),
-      updateProfile: builder.mutation({
-        query: (updatedInfo) => ({
-          url: '/register',
-          method: 'PUT',
-          body: updatedInfo,
-        }),
-      }),
-      resetPassword: builder.mutation({
-        query: (email) => ({
-          url: '/reset-password',
-          method: 'POST',
-          body: { email },
-        }),
-      }),
-      refreshToken: builder.mutation({
-        query: () => ({
-          url: '/refresh-token',
-          method: 'POST',
-        }),
-      }),
-      checkAuthStatus: builder.query({
-        query: () => ({
-          url: '/status',
-          method: 'GET',
-        }),
-      }),
-      updateAuthStatus: builder.mutation({
-        query: (status) => ({
-          url: '/status',
-          method: 'POST',
-          body: status,
-        }),
-      }),
     };
   },
 });
 
-export const {
-  useLoginMutation,
-  useLogoutMutation,
-  useRegisterMutation,
-  useGetUserInfoQuery,
-  useGetCurrentUserInfoQuery,
-  useUpdateProfileMutation,
-  useResetPasswordMutation,
-  useRefreshTokenMutation,
-  useCheckAuthStatusQuery,
-  useUpdateAuthStatusMutation,
-} = authApi;
+export const { useLoginMutation, useRegisterMutation, useGetUserInfoQuery } =
+  authApi;
 export { authApi };
