@@ -9,5 +9,5 @@ export interface ModalCompProps {
   handlesSetShowRegisterModal?: (value: boolean) => void;
   showSignInModal?: boolean;
   handlesSetSignInModal?: (value: boolean) => void;
+  handleSetEmail?: (value: boolean) => void;
 }
-        
