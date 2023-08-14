@@ -5,8 +5,7 @@ import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 import { useModalState } from '../../../hooks/use-modal-state';
 
 const SignInManager: FC<ModalCompProps> = ({}) => {
-  const { showSignInModal, handlesSetIsLogin, handlesSetSignInModal } =
-    useModalState();
+  const { showSignInModal, handlesSetSignInModal } = useModalState();
 
   const handleClose = () => {
     handlesSetSignInModal(!showSignInModal);
@@ -31,11 +30,7 @@ const SignInManager: FC<ModalCompProps> = ({}) => {
       actionBar={actionBar}
       containerId="sign-in-page"
     >
-      <SignInModalPage
-        handlesSetIsLogin={handlesSetIsLogin}
-        showSignInModal={showSignInModal}
-        handlesSetSignInModal={handlesSetSignInModal}
-      />
+      <SignInModalPage />
     </Modal>
   );
 

@@ -2,26 +2,16 @@ import { FunctionComponent as FC } from 'react';
 import Modal from '../utils/Modal/Modal';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 import MyInfoModalPage from '../../pages/MyInfoModalPage';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../store';
 import { useModalState } from '../../../hooks/use-modal-state';
 
 //this page shows modal version for user authentication.
 const MyinfoManager: FC<ModalCompProps> = ({}) => {
-  const {
-    showModal,
-    showSignInModal,
-    showRegisterModal,
-    handlesSetShowModal,
-    handlesSetSignInModal,
-    handlesSetShowRegisterModal,
-    isLogin,
-  } = useModalState();
+  const { showModal, handlesSetShowModal } = useModalState();
   const handleClose = () => {
     handlesSetShowModal(!showModal);
   };
 
-  // this is close button at the bottom
+  // this is close button at the bottom when height > 750.
   const actionBar = (
     <div>
       <button
@@ -40,13 +30,7 @@ const MyinfoManager: FC<ModalCompProps> = ({}) => {
       actionBar={actionBar}
       containerId="my-info-page"
     >
-      <MyInfoModalPage
-        isLogin={isLogin}
-        handlesSetShowRegisterModal={handlesSetShowRegisterModal}
-        showRegisterModal={showRegisterModal}
-        showSignInModal={showSignInModal}
-        handlesSetSignInModal={handlesSetSignInModal}
-      />
+      <MyInfoModalPage />
     </Modal>
   );
 

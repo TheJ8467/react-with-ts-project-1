@@ -3,7 +3,7 @@ import { useWindow } from '../../../../hooks/use-window';
 import { ButtonProps } from '../../../../interfaces/props/ButtonProps';
 
 const SignOutButton: React.FC<ButtonProps> = ({ handleSignOutClick }) => {
-  const { isLogin } = useModalState();
+  const { isLogin, handlesSetShowModal } = useModalState();
   const { windowHeight } = useWindow();
 
   if (isLogin && windowHeight > 750) {
@@ -24,7 +24,10 @@ const SignOutButton: React.FC<ButtonProps> = ({ handleSignOutClick }) => {
         >
           Sign out
         </button>
-        <button className="border rounded-lg bg-red-300 p-2 mt-2 w-auto">
+        <button
+          className="border rounded-lg bg-red-300 p-2 mt-2 w-auto"
+          onClick={() => handlesSetShowModal(false)}
+        >
           Close
         </button>
       </div>

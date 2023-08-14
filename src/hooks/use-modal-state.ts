@@ -20,7 +20,9 @@ export const useModalState = () => {
   const handlesSetSignInModal = (value: boolean) =>
     dispatch(setShowSignInModal(value));
   const handlesSetIsLogin = (value: boolean) => dispatch(setIsLogin(value));
-  const handleSetEmail = (value: string) => dispatch(setEmail(value));
+  const handleSetEmail = (value: string) => {
+    dispatch(setEmail(value));
+  };
 
   return {
     isLogin,

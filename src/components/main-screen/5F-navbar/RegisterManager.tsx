@@ -3,7 +3,6 @@ import Modal from '../utils/Modal/Modal';
 import RegisterModalPage from '../../pages/RegisterModalPage';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 import { useModalState } from '../../../hooks/use-modal-state';
-import { useWindow } from '../../../hooks/use-window';
 
 const RegisterManager: FC<ModalCompProps> = ({}) => {
   const { showRegisterModal, handlesSetShowRegisterModal } = useModalState();
@@ -31,10 +30,7 @@ const RegisterManager: FC<ModalCompProps> = ({}) => {
       actionBar={actionBar}
       containerId="register-page"
     >
-      <RegisterModalPage
-        showRegisterModal={showRegisterModal}
-        handlesSetShowRegisterModal={handlesSetShowRegisterModal}
-      />
+      <RegisterModalPage />
     </Modal>
   );
 

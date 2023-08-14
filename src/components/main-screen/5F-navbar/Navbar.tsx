@@ -11,6 +11,7 @@ import { useModalState } from '../../../hooks/use-modal-state';
 // this function makes modal open, it controls showModal proped from App.tsx
 const Navbar: FC<{}> = ({}) => {
   const dispatch = useDispatch();
+  // const {handleSetShowModal} = useModalState()
   const handleSetShowModal = (value: boolean) => {
     dispatch(setShowModal(value));
   };
