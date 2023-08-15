@@ -1,8 +1,9 @@
 import { useModalState } from '../../../hooks/use-modal-state';
+import { AuthProps } from '../../../interfaces/props/AuthProps';
 import { ButtonProps } from '../../../interfaces/props/ButtonProps';
 import ActionButton from './buttons/ActionButton';
 
-export const AuthForm: React.FC<ButtonProps> = ({
+export const AuthForm: React.FC<AuthProps> = ({
   action,
   handleEmailChange,
   inputEmail,

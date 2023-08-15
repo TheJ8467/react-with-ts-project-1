@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { FunctionComponent as FC } from 'react';
-import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import { useAuth } from '../../hooks/use-auth';
 import { AuthForm } from '../main-screen/utils/AuthForm';
+import { AuthProps } from '../../interfaces/props/AuthProps';
 
 // This page is bridge component between modal module and Register modal page component
 
-const RegisterModalPage: FC<ModalCompProps> = ({}) => {
+const RegisterModalPage: FC<AuthProps> = ({}) => {
   const {
     handleEmailChange,
     handlePasswordChange,

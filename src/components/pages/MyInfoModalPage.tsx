@@ -4,7 +4,7 @@ import { FunctionComponent as FC } from 'react';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import { useModalState } from '../../hooks/use-modal-state';
 import GuestButtons from '../main-screen/utils/buttons/GuestButtons';
-import SignOutButton from '../main-screen/utils/buttons/SignOutButton';
+import SignedUserButton from '../main-screen/utils/buttons/SignedUserButton';
 import LoginStatus from '../main-screen/utils/LoginStatus';
 import { useAuthButton } from '../../hooks/use-auth-button';
 
@@ -17,7 +17,7 @@ const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
     useAuthButton();
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       <p className="p-4 text-center">
         {/* LoginStatus renders welcome message to user */}
         <LoginStatus
@@ -26,7 +26,7 @@ const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
         />
       </p>
       {/* below 2 buttons are rendered conditionally */}
-      <SignOutButton handleSignOutClick={() => handleSignOutClick(false)} />
+      <SignedUserButton handleSignOutClick={() => handleSignOutClick(false)} />
       <GuestButtons
         handleRegisterClick={() => handleRegisterClick(true)}
         handleSignInClick={() => handleSignInClick(true)}
