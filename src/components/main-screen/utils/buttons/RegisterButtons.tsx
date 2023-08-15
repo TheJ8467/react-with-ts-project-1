@@ -1,8 +1,6 @@
-import { useModalState } from '../../../../hooks/use-modal-state';
 import { useWindow } from '../../../../hooks/use-window';
-import { ButtonProps } from '../../../../interfaces/props/ButtonProps';
 
-const RegisterButtons: React.FC<ButtonProps> = () => {
+const RegisterButtons = () => {
   const { windowHeight } = useWindow();
 
   if (windowHeight > 750) {
