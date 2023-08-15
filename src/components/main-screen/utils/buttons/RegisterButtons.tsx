@@ -13,7 +13,7 @@ const RegisterButtons: React.FC<ButtonProps> = () => {
     );
   } else {
     return (
-      <div className="mt-4">
+      <div className="mt-4 text-sm">
         <button className="border rounded-lg bg-red-300 p-2 mt-2 w-3/12">
           Close
         </button>

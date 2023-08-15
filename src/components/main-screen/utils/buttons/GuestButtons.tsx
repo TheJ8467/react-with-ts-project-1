@@ -13,7 +13,7 @@ const GuestButtons: React.FC<ButtonProps> = ({
     return null;
   } else if (isLogin === false && windowHeight > 750) {
     return (
-      <div className="flex justify-between m-4">
+      <div className="flex justify-between m-4 mt-8">
         <button
           className="flex border rounded-xl p-2 bg-yellow-400 mr-4"
           onClick={handleSignInClick}
@@ -31,7 +31,7 @@ const GuestButtons: React.FC<ButtonProps> = ({
   } else {
     return (
       <>
-        <div className="flex justify-between m-4">
+        <div className="flex justify-between mt-8 mb-4 text-sm">
           <button
             className="flex border rounded-xl p-2 bg-yellow-400 mr-4"
             onClick={handleSignInClick}
