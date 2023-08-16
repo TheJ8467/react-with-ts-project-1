@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import {
   setShowModal,
+  setShowPasswordModal,
   setShowRegisterModal,
   setShowSignInModal,
 } from '../store/slices/modalSlice';
@@ -9,9 +10,8 @@ import { setEmail, setIsLogin } from '../store/slices/userSlice';
 
 export const useModalState = () => {
   const dispatch = useDispatch();
-  const { showModal, showRegisterModal, showSignInModal } = useSelector(
-    (state: RootState) => state.modal,
-  );
+  const { showModal, showRegisterModal, showSignInModal, showPasswordModal } =
+    useSelector((state: RootState) => state.modal);
   const { isLogin, email } = useSelector((state: RootState) => state.users);
 
   const handlesSetShowModal = (value: boolean) => dispatch(setShowModal(value));
@@ -23,6 +23,8 @@ export const useModalState = () => {
   const handleSetEmail = (value: string) => {
     dispatch(setEmail(value));
   };
+  const handleSetPasswordModal = (value: boolean) =>
+    dispatch(setShowPasswordModal(value));
 
   return {
     isLogin,
@@ -31,9 +33,11 @@ export const useModalState = () => {
     showModal,
     showRegisterModal,
     showSignInModal,
+    showPasswordModal,
     handlesSetIsLogin,
     handlesSetShowModal,
     handlesSetShowRegisterModal,
     handlesSetSignInModal,
+    handleSetPasswordModal,
   };
 };

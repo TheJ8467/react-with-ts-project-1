@@ -3,9 +3,12 @@ import { useEffect } from 'react';
 import { ModalProps } from '../../../../interfaces/props/ModalProps';
 import { useWindow } from '../../../../hooks/use-window';
 
-// actionBar is for close button at the bottom
-// onClose is for closing by clicking outside of modal
-function Modal({ onClose, children, actionBar, containerId }: ModalProps) {
+function PasswordModal({
+  onClose,
+  children,
+  actionBar,
+  containerId,
+}: ModalProps) {
   const { windowHeight } = useWindow();
 
   useEffect(() => {
@@ -19,7 +22,7 @@ function Modal({ onClose, children, actionBar, containerId }: ModalProps) {
   let innerModal;
   if (windowHeight > 750) {
     innerModal = (
-      <div className="z-20 fixed top-20 left-10 right-10 bottom-60 pb-20 pl-10 pr-10 bg-white">
+      <div className="z-20 fixed top-20 left-10 right-10 bottom-60 pb-20 pl-10 pr-10 opacity-50">
         <div className="flex items-center justify-center h-full">
           {children}
         </div>
@@ -28,7 +31,7 @@ function Modal({ onClose, children, actionBar, containerId }: ModalProps) {
     );
   } else {
     innerModal = (
-      <div className="z-20 fixed top-10 left-10 right-10 bottom-60 pb-4 pl-10 pr-10 bg-white">
+      <div className="z-20 fixed top-120 left-10 right-10 bottom-10 pb-4 pl-10 pr-10 ">
         <div className="flex items-center justify-center h-full">
           {children}
         </div>
@@ -40,7 +43,7 @@ function Modal({ onClose, children, actionBar, containerId }: ModalProps) {
     <div>
       <div
         onClick={onClose}
-        className="z-10 fixed inset-0 bg-gray-300 opacity-80 "
+        className="z-10 fixed inset-0 bg-black opacity-80"
       ></div>
       {innerModal}
     </div>,
@@ -48,4 +51,4 @@ function Modal({ onClose, children, actionBar, containerId }: ModalProps) {
   );
 }
 
-export default Modal;
+export default PasswordModal;

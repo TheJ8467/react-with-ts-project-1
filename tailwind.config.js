@@ -3,6 +3,10 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      minHeight: {
+        555: '555px',
+        700: '700px',
+      },
       keyframes: {
         move: {
           '0%': { transform: 'translateX(0)' },
