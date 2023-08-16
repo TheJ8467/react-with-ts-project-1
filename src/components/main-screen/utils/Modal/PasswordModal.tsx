@@ -20,16 +20,17 @@ function PasswordModal({
   }, []);
 
   let innerModal;
-  if (windowHeight > 750) {
-    innerModal = (
-      <div className="z-20 fixed top-20 left-10 right-10 bottom-60 pb-20 pl-10 pr-10 opacity-50">
-        <div className="flex items-center justify-center h-full">
-          {children}
-        </div>
-        <div className="flex justify-end">{actionBar}</div>
-      </div>
-    );
-  } else {
+  // if (windowHeight > 750) {
+  //   innerModal = (
+  //     <div className="z-20 fixed top-20 left-10 right-10 bottom-60 pb-20 pl-10 pr-10 opacity-50">
+  //       {/* <div className="flex items-center justify-center h-full">
+  //         {children}
+  //       </div> */}
+  //       <div className="flex justify-end">{actionBar}</div>
+  //     </div>
+  //   );
+  // } else {
+  if (windowHeight < 750) {
     innerModal = (
       <div className="z-20 fixed top-120 left-10 right-10 bottom-10 pb-4 pl-10 pr-10 ">
         <div className="flex items-center justify-center h-full">
@@ -38,6 +39,7 @@ function PasswordModal({
       </div>
     );
   }
+  // }
 
   return ReactDOM.createPortal(
     <div>
