@@ -1,6 +1,5 @@
 import { useModalState } from '../../../hooks/use-modal-state';
 import { AuthProps } from '../../../interfaces/props/AuthProps';
-import { ButtonProps } from '../../../interfaces/props/ButtonProps';
 import ActionButton from './buttons/ActionButton';
 
 export const AuthForm: React.FC<AuthProps> = ({
@@ -12,7 +11,8 @@ export const AuthForm: React.FC<AuthProps> = ({
   handleConfirmPasswordChange,
   confirmPassword,
 }) => {
-  const { showRegisterModal } = useModalState();
+  const { showRegisterModal, showPasswordModal, handleSetPasswordModal } =
+    useModalState();
 
   const InputForConfirmPassword = () => {
     if (showRegisterModal) {
@@ -53,6 +53,10 @@ export const AuthForm: React.FC<AuthProps> = ({
           onChange={handlePasswordChange}
           value={password}
           type="password"
+          onClick={() => {
+            handleSetPasswordModal(true);
+            console.log(showPasswordModal);
+          }}
         />
       </div>
       <InputForConfirmPassword />

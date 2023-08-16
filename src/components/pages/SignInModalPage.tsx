@@ -3,7 +3,8 @@ import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import { useAuth } from '../../hooks/use-auth';
 import { AuthForm } from '../main-screen/utils/AuthForm';
 import { AuthProps } from '../../interfaces/props/AuthProps';
-
+import { useModalState } from '../../hooks/use-modal-state';
+import PasswordModalManager from '../main-screen/5F-navbar/PasswordModalManager';
 // This page is bridge component between modal module and sign in modal page component
 
 const SignInModalPage: FC<AuthProps> = ({}) => {
@@ -14,6 +15,7 @@ const SignInModalPage: FC<AuthProps> = ({}) => {
     password,
     inputEmail,
   } = useAuth();
+  const { showPasswordModal } = useModalState();
   return (
     <div>
       <form onSubmit={handleSignInSubmit}>
@@ -25,6 +27,7 @@ const SignInModalPage: FC<AuthProps> = ({}) => {
           password={password}
         />
       </form>
+      {showPasswordModal && <PasswordModalManager />}
     </div>
   );
 };
