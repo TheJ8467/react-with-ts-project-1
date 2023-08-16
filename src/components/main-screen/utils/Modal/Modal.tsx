@@ -28,7 +28,7 @@ function Modal({ onClose, children, actionBar, containerId }: ModalProps) {
     );
   } else {
     innerModal = (
-      <div className="z-20 fixed top-10 left-10 right-10 bottom-40 pb-4 pl-10 pr-10 bg-white">
+      <div className="z-20 fixed top-10 left-10 right-10 bottom-60 pb-4 pl-10 pr-10 bg-white">
         <div className="flex items-center justify-center h-full">
           {children}
         </div>
@@ -40,7 +40,7 @@ function Modal({ onClose, children, actionBar, containerId }: ModalProps) {
     <div>
       <div
         onClick={onClose}
-        className="z-10 fixed inset-0 bg-gray-300 opacity-80"
+        className="z-10 fixed inset-0 bg-gray-300 opacity-80 "
       ></div>
       {innerModal}
     </div>,

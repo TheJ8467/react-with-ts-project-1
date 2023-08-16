@@ -22,7 +22,7 @@ function PasswordModal({
   let innerModal;
   if (windowHeight > 750) {
     innerModal = (
-      <div className="z-20 fixed top-20 left-10 right-10 bottom-60 pb-20 pl-10 pr-10 bg-white">
+      <div className="z-20 fixed top-20 left-10 right-10 bottom-60 pb-20 pl-10 pr-10 opacity-50">
         <div className="flex items-center justify-center h-full">
           {children}
         </div>
@@ -31,7 +31,7 @@ function PasswordModal({
     );
   } else {
     innerModal = (
-      <div className="z-20 fixed top-10 left-10 right-10 bottom-40 pb-4 pl-10 pr-10 bg-white">
+      <div className="z-20 fixed top-120 left-10 right-10 bottom-10 pb-4 pl-10 pr-10 ">
         <div className="flex items-center justify-center h-full">
           {children}
         </div>
@@ -43,7 +43,7 @@ function PasswordModal({
     <div>
       <div
         onClick={onClose}
-        className="z-10 fixed inset-10 bg-black opacity-80"
+        className="z-10 fixed inset-0 bg-black opacity-80"
       ></div>
       {innerModal}
     </div>,
