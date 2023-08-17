@@ -5,11 +5,10 @@ import PasswordModal from '../utils/Modal/PasswordModal';
 import PasswordModalPage from '../../pages/PasswordModalPage';
 
 const PasswordModalManager: FC<ModalCompProps> = ({}) => {
-  const { showPasswordModal, handleSetPasswordModal } = useModalState();
+  const { handleSetPasswordModal } = useModalState();
 
   const handleClose = () => {
-    handleSetPasswordModal(!showPasswordModal);
-    console.log(showPasswordModal);
+    handleSetPasswordModal(false);
   };
 
   // this is close button at the bottom

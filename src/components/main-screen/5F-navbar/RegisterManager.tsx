@@ -25,11 +25,7 @@ const RegisterManager: FC<ModalCompProps> = ({}) => {
 
   // we will render this, based on state of showModal
   const modal = (
-    <Modal
-      onClose={handleClose}
-      actionBar={actionBar}
-      containerId="register-page"
-    >
+    <Modal onClose={handleClose} containerId="register-page">
       <RegisterModalPage />
     </Modal>
   );

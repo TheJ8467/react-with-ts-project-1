@@ -1,13 +1,10 @@
 import ReactDOM from 'react-dom';
 import { useEffect } from 'react';
 import { ModalProps } from '../../../../interfaces/props/ModalProps';
-import { useWindow } from '../../../../hooks/use-window';
 
 // actionBar is for close button at the bottom
 // onClose is for closing by clicking outside of modal
-function Modal({ onClose, children, actionBar, containerId }: ModalProps) {
-  const { windowHeight } = useWindow();
-
+function Modal({ onClose, children, containerId }: ModalProps) {
   useEffect(() => {
     document.body.classList.add('overflow-hidden');
 
@@ -17,24 +14,13 @@ function Modal({ onClose, children, actionBar, containerId }: ModalProps) {
   }, []);
 
   let innerModal;
-  if (windowHeight > 750) {
-    innerModal = (
-      <div className="z-20 fixed top-20 left-10 right-10 bottom-60 pb-20 pl-10 pr-10 bg-white">
-        <div className="flex items-center justify-center h-full">
-          {children}
-        </div>
-        <div className="flex justify-end">{actionBar}</div>
+  innerModal = (
+    <div className="z-20 fixed top-10 left-10 right-10 bottom-60 pb-4 pl-10 pr-10 bg-white min-h-300">
+      <div className="flex items-start justify-center min-h-555 pt-10">
+        {children}
       </div>
-    );
-  } else {
-    innerModal = (
-      <div className="z-20 fixed top-10 left-10 right-10 bottom-60 pb-4 pl-10 pr-10 bg-white">
-        <div className="flex items-center justify-center h-full">
-          {children}
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 
   return ReactDOM.createPortal(
     <div>

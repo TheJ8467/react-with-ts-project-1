@@ -1,5 +1,4 @@
 import { FunctionComponent as FC } from 'react';
-import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import { useAuth } from '../../hooks/use-auth';
 import { AuthForm } from '../main-screen/utils/AuthForm';
 import { AuthProps } from '../../interfaces/props/AuthProps';

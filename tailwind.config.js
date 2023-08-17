@@ -5,7 +5,9 @@ module.exports = {
     extend: {
       minHeight: {
         555: '555px',
-        700: '700px',
+        200: '200px',
+        250: '250px',
+        300: '300px',
       },
       keyframes: {
         move: {

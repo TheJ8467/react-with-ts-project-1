@@ -11,8 +11,7 @@ export const AuthForm: React.FC<AuthProps> = ({
   handleConfirmPasswordChange,
   confirmPassword,
 }) => {
-  const { showRegisterModal, showPasswordModal, handleSetPasswordModal } =
-    useModalState();
+  const { showRegisterModal, handleSetPasswordModal } = useModalState();
 
   const InputForConfirmPassword = () => {
     if (showRegisterModal) {
@@ -25,6 +24,9 @@ export const AuthForm: React.FC<AuthProps> = ({
             onChange={handleConfirmPasswordChange}
             value={confirmPassword}
             type="password"
+            onClick={() => {
+              handleSetPasswordModal(true);
+            }}
           />
         </div>
       );
@@ -55,7 +57,6 @@ export const AuthForm: React.FC<AuthProps> = ({
           type="password"
           onClick={() => {
             handleSetPasswordModal(true);
-            console.log(showPasswordModal);
           }}
         />
       </div>

@@ -4,6 +4,9 @@ import { FunctionComponent as FC } from 'react';
 import { useAuth } from '../../hooks/use-auth';
 import { AuthForm } from '../main-screen/utils/AuthForm';
 import { AuthProps } from '../../interfaces/props/AuthProps';
+import { useWindow } from '../../hooks/use-window';
+import { useModalState } from '../../hooks/use-modal-state';
+import PasswordModalManager from '../main-screen/5F-navbar/PasswordModalManager';
 
 // This page is bridge component between modal module and Register modal page component
 
@@ -17,6 +20,8 @@ const RegisterModalPage: FC<AuthProps> = ({}) => {
     password,
     confirmPassword,
   } = useAuth();
+  const { windowWidth } = useWindow();
+  const { showPasswordModal } = useModalState();
 
   return (
     <div>
@@ -31,6 +36,7 @@ const RegisterModalPage: FC<AuthProps> = ({}) => {
           confirmPassword={confirmPassword}
         />
       </form>
+      {windowWidth > 555 && showPasswordModal && <PasswordModalManager />}
     </div>
   );
 };
