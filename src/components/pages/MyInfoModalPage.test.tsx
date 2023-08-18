@@ -34,6 +34,8 @@ describe('<MyInfoModalPage />', () => {
       </Provider>,
     );
     expect(screen.getByText(/Guest/i)).toBeInTheDocument();
+    expect(screen.getByText(/Register/i)).toBeInTheDocument();
+    expect(screen.getByText(/Sign In/i)).toBeInTheDocument();
   });
 
   it('renders sign out button when user is logged in', () => {
@@ -49,20 +51,5 @@ describe('<MyInfoModalPage />', () => {
       </Provider>,
     );
     expect(screen.getByText(/Sign Out/i)).toBeInTheDocument();
-  });
-
-  it('renders the GuestButtons when user is not logged in', () => {
-    (
-      useModalState as jest.MockedFunction<typeof useModalState>
-    ).mockReturnValue({
-      ...useModalStateMock,
-    });
-    render(
-      <Provider store={store}>
-        <MyInfoModalPage />
-      </Provider>,
-    );
-    expect(screen.getByText(/Register/i)).toBeInTheDocument();
-    expect(screen.getByText(/Sign In/i)).toBeInTheDocument();
   });
 });
