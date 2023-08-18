@@ -2,35 +2,50 @@ import { render, screen } from '@testing-library/react';
 import MyInfoModalPage from './MyInfoModalPage';
 import { useModalState } from '../../hooks/use-modal-state';
 import { Provider } from 'react-redux';
-import { store } from '../../store';
+import { useModalStateMock } from '../main-screen/utils/test/useModalStateMock';
+import { store } from '../main-screen/utils/test/useModalMockStore';
 
 // ... your mock setups ...
 
-describe('<MyInfoModalPage />', () => {
-  it('renders without crashing', () => {
-    render(
-      <Provider store={store}>
-        <MyInfoModalPage />
-      </Provider>,
-    );
-  });
+// Mock the useDispatch hook
+const mockDispatch = jest.fn();
 
+jest.mock('react-redux', () => ({
+  ...jest.requireActual('react-redux'),
+  useDispatch: () => mockDispatch,
+}));
+
+jest.mock('../../hooks/use-modal-state', () => ({
+  useModalState: jest.fn(),
+}));
+
+// Then in your tests, you can provide a mock implementation:
+afterEach(() => {
+  jest.resetAllMocks();
+});
+
+describe('<MyInfoModalPage />', () => {
   it('displays the welcome message', () => {
+    (
+      useModalState as jest.MockedFunction<typeof useModalState>
+    ).mockReturnValue({
+      ...useModalStateMock,
+    });
     render(
       <Provider store={store}>
         <MyInfoModalPage />
       </Provider>,
     );
-    expect(
-      screen.getByText(/LoginStatus renders welcome message to user/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Guest/i)).toBeInTheDocument();
   });
 
   // If you want to test the conditional rendering of buttons:
-  it('renders the SignedUserButton when user is logged in', () => {
-    (useModalState as jest.Mock).mockReturnValue({
-      handlesSetIsLogin: jest.fn().mockReturnValue(true),
-      handleSetEmail: jest.fn(),
+  it('renders sign out button when user is logged in', () => {
+    (
+      useModalState as jest.MockedFunction<typeof useModalState>
+    ).mockReturnValue({
+      ...useModalStateMock,
+      isLogin: true,
     });
     render(
       <Provider store={store}>
@@ -42,9 +57,10 @@ describe('<MyInfoModalPage />', () => {
   });
 
   it('renders the GuestButtons when user is not logged in', () => {
-    (useModalState as jest.Mock).mockReturnValue({
-      handlesSetIsLogin: jest.fn().mockReturnValue(false),
-      handleSetEmail: jest.fn(),
+    (
+      useModalState as jest.MockedFunction<typeof useModalState>
+    ).mockReturnValue({
+      ...useModalStateMock,
     });
     render(
       <Provider store={store}>

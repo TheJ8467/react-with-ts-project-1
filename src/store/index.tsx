@@ -11,29 +11,31 @@ export const store = configureStore({
     users: usersReducer,
     modal: modalReducer,
     window: windowReducer,
-    [addressesApi.reducerPath]: addressesApi.reducer,
+    // [addressesApi.reducerPath]: addressesApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
   },
   middleware(getDefaultMiddleware) {
-    return getDefaultMiddleware()
-      .concat(addressesApi.middleware)
-      .concat(authApi.middleware);
+    return (
+      getDefaultMiddleware()
+        //     .concat(addressesApi.middleware)
+        .concat(authApi.middleware)
+    );
   },
 });
 
-setupListeners(store.dispatch);
+// setupListeners(store.dispatch);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export * from './thunks/fetchUsers';
-export * from './thunks/addUser';
-export * from './thunks/addAddress';
-export * from './thunks/fetchAddress';
-export {
-  useFetchAddressesQuery,
-  useAddAddressMutation,
-  useRemoveAddressMutation,
-} from './apis/addressesApi';
+// export * from './thunks/fetchUsers';
+// export * from './thunks/addUser';
+// export * from './thunks/addAddress';
+// export * from './thunks/fetchAddress';
+// export {
+//   useFetchAddressesQuery,
+//   useAddAddressMutation,
+//   useRemoveAddressMutation,
+// } from './apis/addressesApi';
 export {
   useLoginMutation,
   useRegisterMutation,

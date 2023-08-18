@@ -18,13 +18,13 @@ const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
 
   return (
     <div className="flex flex-col items-center w-full">
-      <p className="p-4 text-center">
+      <div className="p-4 text-center">
         {/* LoginStatus renders welcome message to user */}
         <LoginStatus
           handlesSetIsLogin={handlesSetIsLogin}
           handleSetEmail={handleSetEmail}
         />
-      </p>
+      </div>
       {/* below 2 buttons are rendered conditionally */}
       <SignedUserButton handleSignOutClick={() => handleSignOutClick(false)} />
       <GuestButtons
