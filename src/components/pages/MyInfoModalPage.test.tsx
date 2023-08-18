@@ -4,6 +4,7 @@ import { useModalState } from '../../hooks/use-modal-state';
 import { Provider } from 'react-redux';
 import { useModalStateMock } from '../main-screen/utils/test/useModalStateMock';
 import { store } from '../main-screen/utils/test/useModalMockStore';
+import React from 'react';
 
 // ... your mock setups ...
 
