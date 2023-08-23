@@ -1,6 +1,6 @@
 import { FunctionComponent as FC } from 'react';
 import Modal from '../utils/Modal/Modal';
-import SignInModalPage from '../../pages/SignInModalPage';
+import SignInModalPage from '../../pages/SignInModalPage-copy';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 import { useModalState } from '../../../hooks/use-modal-state';
 

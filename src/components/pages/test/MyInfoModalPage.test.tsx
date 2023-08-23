@@ -1,10 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import MyInfoModalPage from './MyInfoModalPage';
-import { useModalState } from '../../hooks/use-modal-state';
+import MyInfoModalPage from './../MyInfoModalPage';
+import { useModalState } from '../../../hooks/use-modal-state';
 import { Provider } from 'react-redux';
-import { useModalStateMock } from '../main-screen/utils/test/useModalStateMock';
-import { store } from '../main-screen/utils/test/useModalMockStore';
-import React from 'react';
+import { useModalStateMock } from '../../main-screen/utils/test/useModalStateMock';
+import { store } from '../../main-screen/utils/test/useModalMockStore';
 
 const mockDispatch = jest.fn();
 
@@ -13,7 +12,7 @@ jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatch,
 }));
 
-jest.mock('../../hooks/use-modal-state', () => ({
+jest.mock('../../../hooks/use-modal-state', () => ({
   useModalState: jest.fn(),
 }));
 

@@ -26,9 +26,10 @@ const SignInModalPage: FC<AuthProps> = ({}) => {
           inputEmail={inputEmail}
           handlePasswordChange={handlePasswordChange}
           password={password}
+          placeholder={'Press here'}
         />
       </form>
-      {windowWidth > 555 && showPasswordModal && <PasswordModalManager />}
+      {/* {windowWidth > 555 && showPasswordModal && <PasswordModalManager />} */}
     </div>
   );
 };

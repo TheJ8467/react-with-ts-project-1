@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface AuthProps {
   action?: string;
   handleCloseModal?: () => void;
@@ -10,4 +12,11 @@ export interface AuthProps {
     e: React.ChangeEvent<HTMLInputElement>,
   ) => void;
   confirmPassword?: string;
+
+  // Add keyboard feature
+  keyboardInput?: string;
+  placeholder?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  layout?: string;
+  onKeyPress?: (button: ReactNode) => void;
 }
