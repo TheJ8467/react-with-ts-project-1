@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+// This props should be reviewed
+
 export interface AuthProps {
   action?: string;
   handleCloseModal?: () => void;

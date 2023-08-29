@@ -15,7 +15,7 @@ function Modal({ onClose, children, containerId }: ModalProps) {
 
   let innerModal;
   innerModal = (
-    <div className="z-20 fixed top-10 left-10 right-10 bottom-60 pb-4 pl-10 pr-10 bg-white min-h-300">
+    <div className="z-20 fixed top-10 left-10 right-10 bottom-60 pb-4 pl-10 pr-10 bg-white min-h-500">
       <div className="flex items-start justify-center min-h-555 pt-10">
         {children}
       </div>

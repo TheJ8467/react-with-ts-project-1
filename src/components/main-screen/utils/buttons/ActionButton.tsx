@@ -1,3 +1,4 @@
+import { useKeyboard } from '../../../../hooks/use-keyboard';
 import { useModalState } from '../../../../hooks/use-modal-state';
 import { ButtonProps } from '../../../../interfaces/props/ButtonProps';
 
@@ -8,6 +9,7 @@ const ActionButton: React.FC<ButtonProps> = ({ action }) => {
     showSignInModal,
     handlesSetSignInModal,
   } = useModalState();
+  const { handleSetKeyboardInput } = useKeyboard();
 
   const handleClose = () => {
     if (showRegisterModal) {
@@ -15,6 +17,7 @@ const ActionButton: React.FC<ButtonProps> = ({ action }) => {
     } else if (showSignInModal) {
       handlesSetSignInModal(false);
     }
+    handleSetKeyboardInput('');
   };
   return (
     <div className="mt-4 text-sm">

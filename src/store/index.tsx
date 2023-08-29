@@ -5,12 +5,14 @@ import { usersReducer } from './slices/userSlice';
 import { authApi } from './apis/authApi';
 import { modalReducer } from './slices/modalSlice';
 import { windowReducer } from './slices/windowSlice';
+import { keyboardReducer } from './slices/keyboardSlice';
 
 export const store = configureStore({
   reducer: {
     users: usersReducer,
     modal: modalReducer,
     window: windowReducer,
+    keyboard: keyboardReducer,
     // [addressesApi.reducerPath]: addressesApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
   },

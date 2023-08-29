@@ -1,10 +1,12 @@
-import { useState, useRef, ReactNode } from 'react';
 import { useModalState } from '../../../hooks/use-modal-state';
 import { AuthProps } from '../../../interfaces/props/AuthProps';
 import ActionButton from './buttons/ActionButton';
 import { useWindow } from '../../../hooks/use-window';
 import Keyboard from 'react-simple-keyboard';
+import { useKeyboard } from '../../../hooks/use-keyboard';
 
+// It has login and registration form with screen keyboard for secured password
+// Need to refactor each field into componet
 export const AuthForm: React.FC<AuthProps> = ({
   action,
   handleEmailChange,
@@ -13,41 +15,19 @@ export const AuthForm: React.FC<AuthProps> = ({
   password,
   handleConfirmPasswordChange,
   confirmPassword,
-  // add keyboard feature
-  placeholder,
-  // add keyboard feature
 }) => {
   const { showRegisterModal, handleSetPasswordModal, showPasswordModal } =
     useModalState();
-  const [keyboardInput, setKeyboardInput] = useState('');
-  const [layout, setLayout] = useState('default');
+  const {
+    keyboardInput,
+    layout,
+    onChange,
+    onKeyPress,
+    onChangeInput,
+    placeholder,
+    keyboard,
+  } = useKeyboard();
   const { windowWidth } = useWindow();
-  const keyboard = useRef<any>();
-
-  const onChange = (input: any) => {
-    setKeyboardInput(input);
-    console.log('Input changed', input);
-  };
-
-  const handleShift = () => {
-    const newLayoutName = layout === 'default' ? 'shift' : 'default';
-    setLayout(newLayoutName);
-  };
-
-  const onKeyPress = (button: ReactNode) => {
-    console.log('Button pressed', button);
-
-    /**
-     * If you want to handle the shift and caps lock buttons
-     */
-    if (button === '{shift}' || button === '{lock}') handleShift();
-  };
-
-  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const input = event.target.value;
-    setKeyboardInput(input);
-    keyboard.current.setKeyboardInput(input);
-  };
 
   const InputForConfirmPassword = () => {
     if (showRegisterModal) {

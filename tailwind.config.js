@@ -8,6 +8,7 @@ module.exports = {
         200: '200px',
         250: '250px',
         300: '300px',
+        500: '500px',
       },
       keyframes: {
         move: {
